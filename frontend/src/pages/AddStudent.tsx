@@ -9,37 +9,37 @@ import { ArrowLeft } from 'lucide-react'
 import { toast } from '@/hooks/use-toast'
 
 // Define the shape of student data that matches backend validators
-type StudentInput = {
-  name: string
-  email?: string
-  phone?: string
-  className: string
-  gender: 'Male' | 'Female' | 'Other'
-  dateOfBirth?: string
-  address?: string
-}
+// type StudentInput = {
+//   name: string
+//   email?: string
+//   phone?: string
+//   className: string
+//   gender: 'Male' | 'Female' | 'Other'
+//   dateOfBirth?: string
+//   address?: string
+// }
 
 export const AddStudent: React.FC = () => {
   const navigate = useNavigate()
   const createStudentMutation = useCreateStudent()
 
-  const handleSubmit = async (data: StudentInput) => {
-    try {
-      await createStudentMutation.mutateAsync(data)
-      toast({
-        title: 'Success',
-        description: 'Student created successfully',
-      })
-      navigate('/students')
-    } catch (error: any) {
-      toast({
-        title: 'Error',
-        description:
-          error.response?.data?.message || 'Failed to create student',
-        variant: 'destructive',
-      })
-    }
-  }
+ const handleSubmit = async (data: FormData) => {
+   try {
+     await createStudentMutation.mutateAsync(data)
+     toast({
+       title: 'Success',
+       description: 'Student created successfully',
+     })
+     navigate('/students')
+   } catch (error: any) {
+     toast({
+       title: 'Error',
+       description: error.response?.data?.message || 'Failed to create student',
+       variant: 'destructive',
+     })
+   }
+ }
+
 
   return (
     <Layout>

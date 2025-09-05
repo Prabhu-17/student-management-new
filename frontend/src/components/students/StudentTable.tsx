@@ -73,7 +73,7 @@ export const StudentTable: React.FC<StudentTableProps> = ({
               <TableCell className="font-medium">{student.name}</TableCell>
               <TableCell>{student.email}</TableCell>
               <TableCell>
-                <Badge variant="secondary">{student.class}</Badge>
+                <Badge variant="secondary">{student.className}</Badge>
               </TableCell>
               <TableCell>
                 <Badge variant={student.gender === 'male' ? 'default' : 'outline'}>

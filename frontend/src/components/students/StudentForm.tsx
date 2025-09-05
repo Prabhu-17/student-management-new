@@ -49,7 +49,7 @@ export const StudentFormComponent: React.FC<StudentFormProps> = ({
 }) => {
   const [profilePhoto, setProfilePhoto] = useState<File | null>(null)
   const [previewUrl, setPreviewUrl] = useState<string | null>(
-    student?.profilePhotoUrl || null
+    student?.profilePhoto || null
   )
 
   const {
@@ -101,7 +101,7 @@ export const StudentFormComponent: React.FC<StudentFormProps> = ({
     if (profilePhoto) {
       formData.append('profilePhoto', profilePhoto) // backend middleware handles this
     }
-
+    
     await onSubmit(formData)
   }
 

@@ -8,7 +8,7 @@ export const exportStudentsXlsx = async () => {
     Email: s.email || '',
     Class: s.className,
     Gender: s.gender,
-    ProfilePhotoUrl: s.profilePhotoUrl || '',
+    ProfilePhotoUrl: s.profilePhoto || '',
   }))
   const ws = XLSX.utils.json_to_sheet(rows)
   const wb = XLSX.utils.book_new()

@@ -51,7 +51,7 @@ export const StudentDialog: React.FC<StudentDialogProps> = ({
             <div className="text-center">
               <h3 className="text-xl font-semibold">{student.name}</h3>
               <div className="flex gap-2 justify-center mt-2">
-                <Badge variant="secondary">{student.class}</Badge>
+                <Badge variant="secondary">{student.className}</Badge>
                 <Badge variant={student.gender === 'male' ? 'default' : 'outline'}>
                   {student.gender}
                 </Badge>

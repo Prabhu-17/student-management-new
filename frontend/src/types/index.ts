@@ -10,7 +10,7 @@ export interface Student {
   name: string;
   email: string;
   phone: string;
-  class: string;
+  className: string;
   gender: 'male' | 'female';
   dateOfBirth: string;
   address: string;
@@ -34,10 +34,11 @@ export interface AuditLog {
 }
 
 export interface AuthResponse {
-  token: string;
-  refreshToken: string;
-  user: User;
+  accessToken: string
+  refreshToken: string
+  user: User
 }
+
 
 export interface PaginatedResponse<T> {
   data: T[];

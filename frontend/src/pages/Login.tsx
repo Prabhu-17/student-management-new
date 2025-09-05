@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useAuth } from '@/contexts/AuthContext';
 import { useLogin } from '@/hooks/useApi';
@@ -22,7 +22,7 @@ const loginSchema = z.object({
 type LoginForm = z.infer<typeof loginSchema>;
 
 export const Login: React.FC = () => {
-  const { login, isAuthenticated } = useAuth();
+  const { login } = useAuth();
   const loginMutation = useLogin();
   const navigate = useNavigate()
 
@@ -38,14 +38,13 @@ export const Login: React.FC = () => {
   //   return <Navigate to="/dashboard" replace />;
   // }
 
-  const onSubmit = async (data: LoginForm) => { 
-    // console.log('Submitting form with data:', data)
+  const onSubmit = async (data: LoginForm) => {
     try {
       const response = await loginMutation.mutateAsync(data)
       console.log('Login API response:', response)
 
-      // Use response.data.*
-      const { user, accessToken, refreshToken } = response.data
+      // Now TypeScript knows these exist
+      const { user, accessToken, refreshToken } = response
 
       login(user, accessToken, refreshToken)
 
@@ -54,7 +53,7 @@ export const Login: React.FC = () => {
         description: 'Logged in successfully',
       })
 
-      navigate('/dashboard') // 👈 directly navigate after login
+      navigate('/dashboard')
     } catch (error: any) {
       toast({
         title: 'Error',

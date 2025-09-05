@@ -48,7 +48,8 @@ export const Register: React.FC = () => {
     try {
       const { confirmPassword, ...registerData } = data;
       const response = await registerMutation.mutateAsync(registerData);
-      login(response.user, response.token, response.refreshToken);
+      login(response.user, response.accessToken, response.refreshToken)
+
       toast({
         title: "Success",
         description: "Account created successfully",

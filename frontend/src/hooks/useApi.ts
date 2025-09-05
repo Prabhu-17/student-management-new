@@ -3,8 +3,6 @@ import api from '@/lib/api'
 import {
   Student,
   Analytics,
-  AuditLog,
-  PaginatedResponse,
   AuthResponse,
 } from '@/types'
 

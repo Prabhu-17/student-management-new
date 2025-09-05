@@ -158,7 +158,7 @@ export const Dashboard: React.FC = () => {
                         fill="#8884d8"
                         dataKey="count"
                       >
-                        {(analytics?.genderRatio || []).map((entry, index) => (
+                        {(analytics?.genderRatio || []).map((_entry , index) => (
                           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                         ))}
                       </Pie>
