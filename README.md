@@ -3,7 +3,9 @@
 
 FrontEnd deployed link - https://student-management-new-9cw2.vercel.app/login
 Backend deployed on render
-Using mongoDB atlas 
+
+
+For DB- mongoDB atlas 
 
 Student Management System (Frontend + Backend)
 
@@ -132,3 +134,4 @@ app.use('/uploads', express.static('uploads'))
 Seeding sample users (Admin & Teacher)
 
 If your backend has no seeder, you can create two users via API or direct DB insert.
+
